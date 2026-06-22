@@ -1,0 +1,15 @@
+terraform/.terraform/
+
+
+terraform/terraform.tfstate
+
+
+terraform/terraform.tfstate.backup
+
+__pycache__/
+
+.venv/
+
+.env
+
+.DS_Store
