@@ -1,5 +1,5 @@
 variable "aws_region" {
-   default = "eu-east-1"
+   default = "eu-central-1"
 }
 
 variable "repo_name" {
