@@ -18,19 +18,15 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-resource "aws_eip" "app_ip" {
-  instance = aws_instance.server_app.id
-
-  tags = {
-    Name = "flask-app-eip"
-  }
-}
-
 resource "aws_ecr_repository" "app" {
   name   = var.repo_name
 
+ force_delete = true
+
   image_scanning_configuration {
     scan_on_push = true
+
+    
   }
 }
 
