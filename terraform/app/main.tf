@@ -18,6 +18,11 @@ data "aws_ami" "ubuntu" {
   }
 }
 
+resource "aws_eip_association" "app_ip_assoc" {
+  instance_id   = aws_instance.server_app.id
+  allocation_id = aws_eip.app_ip.id
+}
+
 resource "aws_ecr_repository" "app" {
   name   = var.repo_name
 

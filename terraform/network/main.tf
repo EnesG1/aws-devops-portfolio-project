@@ -6,7 +6,10 @@ resource "aws_eip" "app_ip" {
   }
 }
 
-resource "aws_eip_association" "app_ip_assoc" {
-  instance_id   = aws_instance.server_app.id
-  allocation_id = aws_eip.app_ip.id
+output "allocation_id" {
+  value = aws_eip.app_ip.id
+}
+
+output "public_ip" {
+  value = aws_eip.app_ip.public_ip
 }
