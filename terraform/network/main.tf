@@ -6,10 +6,3 @@ resource "aws_eip" "app_ip" {
   }
 }
 
-output "allocation_id" {
-  value = aws_eip.app_ip.id
-}
-
-output "public_ip" {
-  value = aws_eip.app_ip.public_ip
-}

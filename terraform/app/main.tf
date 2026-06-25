@@ -47,7 +47,7 @@ resource "aws_instance" "server_app" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
-  key_name = "DevOps-Key"
+  key_name = "Mykey"
 
   vpc_security_group_ids = [
     aws_security_group.flask_app.id
