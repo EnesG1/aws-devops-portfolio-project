@@ -18,9 +18,17 @@ data "aws_ami" "ubuntu" {
   }
 }
 
+
+data "terraform_remote_state" "network" {
+  backend = "local"
+
+  config = {
+    path = "../network/terraform.tfstate"
+  }
+}
 resource "aws_eip_association" "app_ip_assoc" {
   instance_id   = aws_instance.server_app.id
-  allocation_id = aws_eip.app_ip.id
+  allocation_id = data.terraform_remote_state.network.outputs.eip_allocation_id
 }
 
 resource "aws_ecr_repository" "app" {
