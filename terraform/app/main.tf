@@ -36,6 +36,8 @@ resource "aws_instance" "server_app" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
+  user_data = file("${path.module}/user_data.sh")
+  
   key_name = "aws-key"
 
   vpc_security_group_ids = [
