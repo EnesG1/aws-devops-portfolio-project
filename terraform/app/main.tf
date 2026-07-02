@@ -31,17 +31,6 @@ resource "aws_eip_association" "app_ip_assoc" {
   allocation_id = data.terraform_remote_state.network.outputs.eip_allocation_id
 }
 
-resource "aws_ecr_repository" "app" {
-  name   = var.repo_name
-
- force_delete = true
-
-  image_scanning_configuration {
-    scan_on_push = true
-
-    
-  }
-}
 
 resource "aws_instance" "server_app" {
   ami           = data.aws_ami.ubuntu.id
